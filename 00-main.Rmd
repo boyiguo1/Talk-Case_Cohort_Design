@@ -25,8 +25,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # TL;DR
-* Case-cohort, a special case of case-control, is designed for accurate estimation of risk when analyzing time-to-event outcome.
-  * Only use random sub-cohort part of data for accurate odds ratio estimation
+* Case-cohort, a special case of case-control, is designed for flexibility when studying multiple endpoints or staggered entry studeis
+  * Only use random sub-cohort part of data for accurate odds ratio estimation [@Prentice1986]
 * Case-cohort study consists three parts:
   * Random Sub-cohort: _sub-cohort cases_ and _sub-cohort non-cases_
   * _Non sub-cohort cases_
@@ -49,12 +49,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Study Design
 
-![](FlowChart.png)
+![](Figure/FlowChart.png)
 
 ## Logistics
 * At baseline
   * Collect blood sample for all participants and store in a freezer
-  * Create random sub-cohort ^{This step can be also done retrospectively}
+  * Create random sub-cohort ^[This step can be also done retrospectively]
 
 * At the time of case-cohort study
   * Define cases and assemble the analytic dataset
@@ -62,20 +62,23 @@ knitr::opts_chunk$set(echo = TRUE)
   * Run analysis
 
 # Analysis
-## Odds Ratio
-* Use the random sub-cohort data to analyze
 
 ## Survival Analysis
-* Define _Denominator Weights_ following
-![](Denominator_weights.jpg)
+* Define _Denominator Weights_ following @Barlow1999
+![](Figure/Denominator_weights.jpg)
+* Robust variance estimations are recommended
+* Software implementation are documented @Barlow1999 with a dated Macro provided
 
 # Cautious 
-* Different from nested cohort design
+* Different from nested case-control design
+  * Risk set for controls sampling are different
 * Define your cohort clearly
   * Sampling the random subcohort before/after exclusion of sample makes different to the estimation
   * Most often, REGARDS have pre-defined random sub-cohort. Don't do it on your own.
-* 
 
 # Methodology Development
 * Linear regression in a case-cohort study: interpretation and statistical inference
 * Bootstraping strategies in a case-cohort study and its implications on mediation analysis
+
+
+# Reference
